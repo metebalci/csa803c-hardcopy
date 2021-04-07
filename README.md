@@ -7,18 +7,22 @@ This (listen.py) is a small utility listening on COM port connected to CSA803C, 
 
 CSA803C sends the screenshot as TIFF and it is saved as such. Because the communication is slow, it takes around 100 seconds to save this image. There is also a TIFF Compacted format, but it seems it is not commonly supported by image viewer applications.
 
+Images below are captured with this utility.
+
 # Known Issues
 
 There is a problem at the bottom of the images, I dont know yet the reason of this.
 
 # Requirements
 
+## listen.py
+
 listen.py requires pyserial package.
 
-It expects CSA803C RS232C is configured as below (this image is captured with this utility):
+## CSA803C RS232C Parameters
 
 ![RS232C Parameters](rs232c.png)
 
-Also, it expects CSA803C hardcopy configured as below:
+## CSA803C Hardcopy Parameters
 
 ![Hardcopy Parameters](hardcopy.png)
