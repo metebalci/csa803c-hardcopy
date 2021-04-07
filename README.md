@@ -9,10 +9,6 @@ CSA803C sends the screenshot as TIFF and it is saved as such. Because the commun
 
 Images below are captured with this utility.
 
-# Known Issues
-
-There is a problem at the bottom of the images, I dont know yet the reason of this.
-
 # Requirements
 
 ## listen.py
