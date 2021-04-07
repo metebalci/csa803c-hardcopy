@@ -3,6 +3,7 @@ import time
 import signal
 import sys
 import datetime
+import os
 
 
 def send_command(cmd):
@@ -61,6 +62,8 @@ if port:
                     with open('/home/ubuntu/sambashare/%s.tiff' % now, 'wb') as f:
                         for i in range(0, len(buf)):
                             f.write(buf[i])
+                    os.system('convert /home/ubuntu/sambashare/%s.tiff /home/ubuntu/sambashare/%s.png' % (now, now))
+                    os.system('rm -f /home/ubuntu/sambashare/%s.tiff' % now)
                     buf = []
             else:
                 # save incoming to buffer
