@@ -17,6 +17,8 @@ CSA803C sends the screenshot as TIFF and it is saved as such. Because the commun
 
 listen.py requires pyserial package.
 
+There are hard-coded paths in the python file. It is not meant to be used as it is, but to be customized.
+
 ## CSA803C RS232C Parameters
 
 ![RS232C Parameters](rs232c.png)
