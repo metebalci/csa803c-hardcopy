@@ -15,8 +15,11 @@ After=multi-user.target
 [Service]
 Type=simple
 User=ubuntu
-ExecStart=/home/ubuntu/csa803c-hardcopy/bin/python /home/ubuntu/csa803c-hardcopy/src/listen.py --serve-in-foreground
+StandardOutput=file:/tmp/csa803c.log
+StandardError=file:/tmp/csa803c.err
+ExecStart=/home/ubuntu/csa803c-hardcopy/bin/python /home/ubuntu/csa803c-hardcopy/src/listen.py
 Restart=always
+Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=multi-user.target
