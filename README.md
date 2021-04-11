@@ -5,7 +5,22 @@ Tektronix CSA803C is a Digital Sampling Oscilloscope from 1990s. It has no netwo
 
 This (listen.py) is a small utility listening on COM port connected to CSA803C, captures the data when hardcopy key is pressed, and saves it to a folder. CSA803C sends the screenshot as TIFF and it is saved as such. Because the communication is slow, it takes around 100 seconds to save this image. There is also a TIFF Compacted format, but it seems it is not commonly supported by image viewer applications.
 
-I am using this utility on a Raspberry Pi 3B running Ubuntu and saving the images to a samba share, so I can access the screenshots directly from Windows etc. listen.py also executes convert tool to convert tiff to png, and then deletes the tiff file.
+I am using this utility on a Raspberry Pi 3B running Ubuntu and saving the images to a samba share, so I can access the screenshots directly from Windows etc. listen.py also executes convert tool to convert tiff to png, and then deletes the tiff file. In order to run it when rpi starts, I am using the following service file:
+
+```
+[Unit]
+Description=csa803c
+After=multi-user.target
+
+[Service]
+Type=simple
+User=ubuntu
+ExecStart=/home/ubuntu/csa803c-hardcopy/bin/python /home/ubuntu/csa803c-hardcopy/src/listen.py --serve-in-foreground
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
 
 # Sample
 
